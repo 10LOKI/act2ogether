@@ -6,6 +6,7 @@
     <title>actTogether</title>
     <link rel="stylesheet" href="/actTogether/assets/css/style.css">
     <link rel="stylesheet" href="/actTogether/assets/css/accueil.css">
+    <link rel="stylesheet" href="/actTogether/assets/css/dashboard.css">
     <link rel="stylesheet" href="/actTogether/assets/css/chatbot.css">
 </head>
 <body>
@@ -16,7 +17,12 @@
                     <img src="/logo.png" alt="actTogether" class="logo-img">
                 </a>
             </h1>
-            <nav class="nav">
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav" id="navMenu">
                 <a href="/actTogether/public/">Accueil</a>
                 <a href="/actTogether/public/evenements">Événements</a>
                 <a href="/actTogether/public/contact">Contact</a>

@@ -59,7 +59,29 @@ try {
         message TEXT NOT NULL,
         date_envoi TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )");
-    echo "✓ Table messages_contact créée<br><br>";
+    echo "✓ Table messages_contact créée<br>";
+    
+    // Tables chatbot
+    $chatbotSchema = file_get_contents(__DIR__ . '/sql/chatbot_schema.sql');
+    $statements = explode(';', $chatbotSchema);
+    foreach ($statements as $statement) {
+        $statement = trim($statement);
+        if (!empty($statement) && !stripos($statement, 'USE acttogether')) {
+            $pdo->exec($statement);
+        }
+    }
+    echo "✓ Tables chatbot créées<br>";
+    
+    // Seed chatbot
+    $chatbotSeed = file_get_contents(__DIR__ . '/sql/chatbot_seed.sql');
+    $statements = explode(';', $chatbotSeed);
+    foreach ($statements as $statement) {
+        $statement = trim($statement);
+        if (!empty($statement) && !stripos($statement, 'USE acttogether')) {
+            $pdo->exec($statement);
+        }
+    }
+    echo "✓ Réponses chatbot ajoutées<br><br>";
     
     echo "<h2 style='color: green;'>✓ Installation terminée avec succès!</h2>";
     echo "<p><a href='public/index.php'>Accéder au site</a></p>";

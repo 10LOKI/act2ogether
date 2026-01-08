@@ -2,6 +2,25 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Toggle menu mobile
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Fermer menu au clic sur lien
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+    
     // Validation formulaires côté client
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {

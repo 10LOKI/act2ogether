@@ -95,3 +95,64 @@ function loadTopEtudiants() {
             leaderboard.innerHTML = '<p class="error">Erreur de chargement. Vérifiez la console.</p>';
         });
 }
+
+
+function initConseilsCarousel() {
+    const track = document.getElementById('conseilsTrack');
+    const prevBtn = document.getElementById('conseilPrev');
+    const nextBtn = document.getElementById('conseilNext');
+    const dotsContainer = document.getElementById('conseilDots');
+    
+    if (!track || !prevBtn || !nextBtn) return;
+    
+    const cards = track.querySelectorAll('.conseil-card');
+    const cardWidth = 300 + 32;
+    let currentIndex = 0;
+    const totalCards = cards.length;
+    
+    for (let i = 0; i < totalCards; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+    
+    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+    
+    function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+    
+    function goToSlide(index) {
+        currentIndex = Math.max(0, Math.min(index, totalCards - 1));
+        updateCarousel();
+    }
+    
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < totalCards - 1) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+    
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalCards;
+        updateCarousel();
+    }, 5000);
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initConseilsCarousel);
+} else {
+    initConseilsCarousel();
+}

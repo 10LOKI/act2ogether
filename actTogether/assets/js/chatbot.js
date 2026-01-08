@@ -51,13 +51,28 @@ class ActTogetherChatbot {
     }
     
     async demarrerConversation() {
-        const response = await fetch('/actTogether/public/api/chatbot/demarrer.php', {
-            method: 'POST'
-        });
-        const data = await response.json();
-        
-        this.sessionId = data.session_id;
-        this.afficherMessage('bot', data.message, data.suggestions);
+        try {
+            const response = await fetch('/actTogether/public/api/chatbot/demarrer.php', {
+                method: 'POST'
+            });
+            
+            if (!response.ok) {
+                throw new Error('Erreur réseau');
+            }
+            
+            const data = await response.json();
+            
+            if (data.error) {
+                this.afficherMessage('bot', 'Erreur: ' + data.error);
+                return;
+            }
+            
+            this.sessionId = data.session_id;
+            this.afficherMessage('bot', data.message, data.suggestions);
+        } catch (error) {
+            console.error('Erreur chatbot:', error);
+            this.afficherMessage('bot', 'Désolé, une erreur s\'est produite. Veuillez réessayer.');
+        }
     }
     
     async envoyerMessage() {
@@ -71,18 +86,35 @@ class ActTogetherChatbot {
         
         this.afficherTyping();
         
-        const formData = new FormData();
-        formData.append('session_id', this.sessionId);
-        formData.append('message', message);
-        
-        const response = await fetch('/actTogether/public/api/chatbot/envoyer.php', {
-            method: 'POST',
-            body: formData
-        });
-        const data = await response.json();
-        
-        this.retirerTyping();
-        this.afficherMessage('bot', data.reponse, data.suggestions);
+        try {
+            const formData = new FormData();
+            formData.append('session_id', this.sessionId);
+            formData.append('message', message);
+            
+            const response = await fetch('/actTogether/public/api/chatbot/envoyer.php', {
+                method: 'POST',
+                body: formData
+            });
+            
+            if (!response.ok) {
+                throw new Error('Erreur réseau');
+            }
+            
+            const data = await response.json();
+            
+            this.retirerTyping();
+            
+            if (data.error) {
+                this.afficherMessage('bot', 'Erreur: ' + data.error);
+                return;
+            }
+            
+            this.afficherMessage('bot', data.reponse, data.suggestions);
+        } catch (error) {
+            console.error('Erreur envoi message:', error);
+            this.retirerTyping();
+            this.afficherMessage('bot', 'Désolé, impossible d\'envoyer le message.');
+        }
     }
     
     afficherMessage(expediteur, contenu, suggestions = []) {

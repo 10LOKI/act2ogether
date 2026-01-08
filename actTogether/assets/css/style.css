@@ -70,6 +70,36 @@ body {
     align-items: center;
 }
 
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-foreground);
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
 .nav a {
     color: var(--primary-foreground);
     text-decoration: none;
@@ -675,13 +705,29 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .header .container {
-        flex-direction: column;
-        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .nav-toggle {
+        display: flex;
     }
     
     .nav {
-        flex-wrap: wrap;
-        justify-content: center;
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+    }
+    
+    .nav.active {
+        display: flex;
+    }
+    
+    .nav a, .nav .points-badge-nav {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem;
     }
     
     .hero h1 {

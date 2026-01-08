@@ -140,6 +140,71 @@
     </div>
 </section>
 
+<!-- Conseils Bénévolat -->
+<section class="conseils-section">
+    <div class="conseils-overlay"></div>
+    <div class="container">
+        <h2 class="section-title-white">💡 Conseils pour un bénévolat réussi</h2>
+        <div class="conseils-carousel">
+            <button class="carousel-btn prev" id="conseilPrev">‹</button>
+            <div class="conseils-track" id="conseilsTrack">
+                <div class="conseil-card">
+                    <div class="conseil-icon">🎯</div>
+                    <h3>Choisissez avec passion</h3>
+                    <p>Sélectionnez des causes qui vous tiennent vraiment à cœur pour rester motivé</p>
+                </div>
+                <div class="conseil-card">
+                    <div class="conseil-icon">⏰</div>
+                    <h3>Gérez votre temps</h3>
+                    <p>Équilibrez vos études et votre engagement bénévole pour une expérience durable</p>
+                </div>
+                <div class="conseil-card">
+                    <div class="conseil-icon">🤝</div>
+                    <h3>Travaillez en équipe</h3>
+                    <p>Le bénévolat est une aventure collective, créez des liens avec d'autres volontaires</p>
+                </div>
+                <div class="conseil-card">
+                    <div class="conseil-icon">📚</div>
+                    <h3>Apprenez continuellement</h3>
+                    <p>Chaque mission est une opportunité d'acquérir de nouvelles compétences</p>
+                </div>
+                <div class="conseil-card">
+                    <div class="conseil-icon">💪</div>
+                    <h3>Restez engagé</h3>
+                    <p>La régularité dans vos actions crée un impact réel et durable</p>
+                </div>
+                <div class="conseil-card">
+                    <div class="conseil-icon">🌟</div>
+                    <h3>Soyez positif</h3>
+                    <p>Votre attitude positive inspire les autres et amplifie votre impact</p>
+                </div>
+                <div class="conseil-card">
+                    <div class="conseil-icon">📱</div>
+                    <h3>Restez connecté</h3>
+                    <p>Utilisez la plateforme pour suivre vos progrès et découvrir de nouvelles opportunités</p>
+                </div>
+                <div class="conseil-card">
+                    <div class="conseil-icon">🎓</div>
+                    <h3>Valorisez votre expérience</h3>
+                    <p>Le bénévolat enrichit votre CV et développe vos soft skills</p>
+                </div>
+                <div class="conseil-card">
+                    <div class="conseil-icon">🌍</div>
+                    <h3>Pensez impact</h3>
+                    <p>Chaque petite action contribue à un changement positif dans la société</p>
+                </div>
+                <div class="conseil-card">
+                    <div class="conseil-icon">❤️</div>
+                    <h3>Prenez soin de vous</h3>
+                    <p>Un bénévole épanoui est plus efficace, n'oubliez pas votre bien-être</p>
+                </div>
+            </div>
+            <button class="carousel-btn next" id="conseilNext">›</button>
+        </div>
+        <div class="carousel-dots" id="conseilDots"></div>
+    </div>
+</section>
+
 <!-- CTA Final -->
 <section class="cta-section">
     <div class="container">
