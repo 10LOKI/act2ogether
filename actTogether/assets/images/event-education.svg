@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect fill="#FFF3E0" width="400" height="300"/>
+  <circle cx="200" cy="120" r="60" fill="#FF9800" opacity="0.3"/>
+  <text x="200" y="135" font-size="60" text-anchor="middle">📚</text>
+  <text x="200" y="220" font-family="Arial" font-size="22" fill="#E65100" text-anchor="middle" font-weight="bold">Aide aux Devoirs</text>
+  <text x="200" y="250" font-family="Arial" font-size="16" fill="#666" text-anchor="middle">Soutien scolaire</text>
+</svg>

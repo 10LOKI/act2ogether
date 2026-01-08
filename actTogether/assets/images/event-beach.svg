@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ocean" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4682B4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E90FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky -->
+  <rect fill="url(#sky)" width="400" height="180"/>
+  
+  <!-- Sun -->
+  <circle cx="350" cy="50" r="35" fill="#FFD700"/>
+  
+  <!-- Ocean -->
+  <rect fill="url(#ocean)" y="180" width="400" height="60"/>
+  
+  <!-- Beach -->
+  <rect fill="#F4A460" y="240" width="400" height="60"/>
+  
+  <!-- Waves -->
+  <path d="M0 200 Q50 190 100 200 T200 200 T300 200 T400 200" fill="none" stroke="#FFF" stroke-width="2" opacity="0.5"/>
+  <path d="M0 210 Q50 200 100 210 T200 210 T300 210 T400 210" fill="none" stroke="#FFF" stroke-width="2" opacity="0.3"/>
+  
+  <!-- People cleaning -->
+  <circle cx="100" cy="260" r="8" fill="#2ECC71"/>
+  <rect x="96" y="268" width="8" height="15" fill="#2ECC71"/>
+  <circle cx="200" cy="260" r="8" fill="#3498DB"/>
+  <rect x="196" y="268" width="8" height="15" fill="#3498DB"/>
+  
+  <!-- Trash bags -->
+  <rect x="150" y="270" width="15" height="20" fill="#2c3e50" rx="2"/>
+  <rect x="250" y="270" width="15" height="20" fill="#2c3e50" rx="2"/>
+</svg>
